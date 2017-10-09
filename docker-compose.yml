@@ -3,7 +3,9 @@ services:
   minecraft:
     build: 
       context: .
+      args:
+        - VERSION=1.8.8
     ports:
       - 25565:25565
-    environment:
-      - VERSION=1.8.8
+    volumes:
+      - ./data:/minecraft
