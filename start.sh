@@ -11,13 +11,19 @@ FILE=install.lock
 DIR=/minecraft/${VERSION}
 JAR=minecraft_server.${VERSION}.jar
 
-cp /server.properties ${DIR}/server.properties
 
 if [ ! -d "$DIR" ]; then
     mkdir $DIR
 fi
 cd $DIR
+cp /server.properties ${DIR}/server.properties
 echo "eula=true" > eula.txt
+echo "[]" > usercache.json
+echo "[]" > banned-ips.json
+echo "[]" > banned-players.json
+echo "[]" > ops.json
+echo "[]" > whitelist.json
+
 if [ ! -f "$FILE" ]; then
     echo "Download version ${VERSION}"
     rm $JAR
