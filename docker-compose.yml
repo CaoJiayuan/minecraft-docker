@@ -6,3 +6,5 @@ services:
       - 25565:25565
     volumes:
       - ./data:/minecraft
+    environment:
+      - VERSION=1.8.8

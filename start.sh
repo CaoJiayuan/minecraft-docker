@@ -17,6 +17,6 @@ if [ ! -f "$FILE" ]; then
     wget http://s3.amazonaws.com/Minecraft.Download/versions/${VERSION}/minecraft_server.${VERSION}.jar
 fi
 
-echo date > $FILE
+date > $FILE
 
 java $JAVA_OPT -jar $JAR nogui
