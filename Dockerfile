@@ -1,4 +1,4 @@
-FROM openjdk:8u131-jre-alpine
+FROM registry.docker-cn.com/library/openjdk:8u131-jre-alpine
 
 WORKDIR /minecraft
 #ARG JAVA_OPT="-Xms1G -Xmx2G"
