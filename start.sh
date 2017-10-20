@@ -57,6 +57,8 @@ fi
 
 envsubst '$PLAYER' < /server.properties.template > server.properties
 
+cat server.properties
+
 console "Java option: ${JAVA_OPT}" ${CONSOLE_COLOR_GREEN}
 
 java ${JAVA_OPT} -jar ${JAR} nogui
