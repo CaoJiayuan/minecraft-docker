@@ -24,6 +24,10 @@ if [ "$VERSION" == "" ]; then
     VERSION="1.8.8"
 fi
 
+if [ "$PLAYER" == "" ]; then
+    export PLAYER=10
+fi
+
 FILE=install.lock
 DIR=/minecraft/${VERSION}
 JAR=minecraft_server.${VERSION}.jar
@@ -37,7 +41,6 @@ console "Now at: $DIR" ${CONSOLE_COLOR_GREEN}
 
 if [ ! -f "$FILE" ]; then
     console "Download version ${VERSION}" ${CONSOLE_COLOR_YELLOW}
-    cp /server.properties ${DIR}/server.properties
     echo "eula=true" > eula.txt
     echo "[]" > usercache.json
     echo "[]" > banned-ips.json
@@ -51,6 +54,8 @@ if [ ! -f "$FILE" ]; then
 else
    console "Skip download using exists." ${CONSOLE_COLOR_YELLOW}
 fi
+
+envsubst '$PLAYER' < /server.properties.template > server.properties
 
 console "Java option: ${JAVA_OPT}" ${CONSOLE_COLOR_GREEN}
 

@@ -8,3 +8,5 @@ services:
       - ./data:/minecraft
     environment:
       - VERSION=1.8.8
+      - PLAYER=5
+      

@@ -6,10 +6,10 @@ WORKDIR /minecraft
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 RUN apk --update add \
-    wget
+    wget gettext
 
 COPY start.sh /start.sh
-COPY server.properties /server.properties
+COPY server.properties.template /server.properties.template
 
 RUN chmod +x /start.sh
 
