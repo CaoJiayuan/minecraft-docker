@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker pull openjdk:8u131-jre-alpine
+  - echo $DOCKER_PWD | docker login -u $DOCKER_USER --password-stdin
+
+script:
+  - docker build -t cjy632258/minecraft .
+
+after_success:
+  - docker push cjy632258/minecraft
