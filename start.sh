@@ -23,13 +23,17 @@ fi
 if [ "$VERSION" == "" ]; then
     VERSION="1.8.8"
 fi
+SUBFIX = "";
+if [ "$TAG" != "" ]; then
+    SUBFIX=_${TAG}
+fi
 
 if [ "$PLAYER" == "" ]; then
     export PLAYER=10
 fi
 
 FILE=install.lock
-DIR=/minecraft/${VERSION}
+DIR=/minecraft/${VERSION}${SUBFIX}
 JAR=minecraft_server.${VERSION}.jar
 
 
